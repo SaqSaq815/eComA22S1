@@ -14,6 +14,7 @@
 			$url = self::parseurl(); // get the url parsed and returned as an array of url segment
 
 			// use the first part to determine the class to load
+			
 			if(isset($url[0])){
 				if(file_exists('app/controller' . $url[0] . '.php')){
 					$this->controller = $url[0]; // this refers to the current object
@@ -31,12 +32,10 @@
 				unset($url[1]);
 			}
 
-			// while passing all other parts as arguments
+			// ...while passing all other parts as arguments
 			// repackage the parameters
 			$params = $url ? array_values($url) : [];
-			call_user_func_array([ $this->controller, $this->method ], $params);
-			
-
+			call_user_func_array([ $this->controller, $this->method ], $params);		
 		}
 
 		public static function parseUrl(){
@@ -47,8 +46,6 @@
 						rtrim($_GET['url'], '/'))
 					,FILTER_SANITIZE_URL);
 			}
-
-
 		}
 
 

@@ -5,24 +5,18 @@ namespace app\models;
 //$this-> refers to the object
 
 class Food{
-
 	public $name;
 	public $id; // line number in the file
 	private static $file = "app/resources/foods.txt";// do this for other areas where there is a path string
 
 	public function insert(){
-		// process the form data if it is submitted
-			if(isset($_POST['action'])){
-				// add the new entry to the end of the file
-				$fh = fopen(self::$file, 'a');
-				flock($fh, LOCK_EX);
-				fwrite($fh, $this->name . "\n");
-				flock($fh, LOCK_UN);
-				fclose($fh);
-			}
+		// add the new entry to the end of the file
+		$fh = fopen(self::$file, 'a');
+		flock($fh, LOCK_EX);
+		fwrite($fh, $this->name . "\n");
+		flock($fh, LOCK_UN);
+		fclose($fh);
 	}
-
-
 
 	public function getAll(){ // return all the food items from the file
 		$foods = file(self::$file);
@@ -40,7 +34,7 @@ class Food{
 
 	public function deleteAt($food_id){
 		$foods = file(self::$file);//read the file
-		if(!isset($foods[food_id]))
+		if(!isset($foods[$food_id]))
 			return;
 		unset($foods[$food_id]);
 
@@ -53,9 +47,6 @@ class Food{
 		flock($fh,LOCK_UN);
 		fclose($fh);
 	}
-
-
-
 
 	public function __toString(){
 		return $this->name;

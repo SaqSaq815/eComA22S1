@@ -19,7 +19,7 @@
 				//populate the food object
 				$newfood->name = $_POST['new_food'];
 				//call insert
-				$newfood->
+				$newfood->insert();
 			}
 
 
@@ -29,9 +29,7 @@
 			$foods = $food->getAll();
 
 			//pass the foods to the view for render and output
-			$this -> view('Main/food', $foods);
+			$this -> view('Main/foods', $foods);
 		}
-
-
 
 	}

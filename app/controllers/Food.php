@@ -8,14 +8,7 @@ class Food{
 		$food = new \app\models\Food();
 		$food->deleteAt($food_id);
 		//redirect to the list
-		header('location:/Main/food');
-
-
-
-
+		header('location:/Main/foods');
 	}
 
-
-
 }
-
