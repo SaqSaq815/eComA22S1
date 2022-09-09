@@ -32,4 +32,22 @@
 			$this -> view('Main/foods', $foods);
 		}
 
+		public function foodsJSON(){
+			// service that outputs JSON
+			//read the foods.tct file onto a variable
+			//$foods = file("app/resources/foods.txt"); //  moved to Food.php
+			$food = new \app\models\Food();
+			$foods = $food->getAll();
+
+			echo json_encode($foods);
+		}
+
+		public function foodsAJAX(){
+			$this->view('Main/foodsAJAX');
+		}
+
+
+
+
+
 	}
