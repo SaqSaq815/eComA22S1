@@ -5,7 +5,6 @@
 		private $controller = 'Main';
 		private $method = 'index';
 
-
 		public function __construct(){
 			//echo $_GET['url'];
 			//TODO: replace this echo with the routing algorithm

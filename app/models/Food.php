@@ -7,7 +7,7 @@ namespace app\models;
 class Food{
 	public $name;
 	public $id; // line number in the file
-	private static $file = "app/resources/foods.txt";// do this for other areas where there is a path string
+	private static $file = "app/resources/foods.txt";
 
 	public function insert(){
 		// add the new entry to the end of the file
