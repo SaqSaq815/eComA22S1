@@ -9,4 +9,3 @@ chicken
 beef
 fish
 chicken
-beef

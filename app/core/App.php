@@ -15,7 +15,7 @@
 			// use the first part to determine the class to load
 			
 			if(isset($url[0])){
-				if(file_exists('app/controller' . $url[0] . '.php')){
+				if(file_exists('app/controllers/' . $url[0] . '.php')){
 					$this->controller = $url[0]; // this refers to the current object
 				}
 				unset($url[0]);
